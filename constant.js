@@ -1,0 +1,12 @@
+exports.SQL_DB_URL = `postgres://citus:Test@123@c.postgres-syngenta.postgres.database.azure.com:5432/citus?sslmode=require`;
+exports.REDIS_CACHE_HOSTNAME = `syngenta.redis.cache.windows.net:6380`;
+exports.REDIS_PASSWORD = `6nsDnA5qF24kS76u01gpjCzr0hoCIX7f2AzCaMmReTU=`;
+exports.DB_NAME = `prod`;
+exports.NODE_ENV = `prod`;
+exports.JWT_TIMEOUT_DURATION = "2 hours";
+exports.SESSION_SECRET = "random string";
+exports.OAUTH2_AUTHORIZATION_URL = `https://accounts.google.com/o/oauth2/auth`;
+exports.OAUTH2_TOKEN_URL = `https://oauth2.googleapis.com/token`;
+exports.OAUTH2_CLIENT_ID = `635737866453-vrkp9bg2fmfl08ve3m3ha0cqhvugf2uq.apps.googleusercontent.com`;
+exports.OAUTH2_CLIENT_SECRET = `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`;
+exports.OAUTH2_CALLBACK_URL = "/auth/google/callback";
