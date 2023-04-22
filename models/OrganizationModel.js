@@ -1,29 +1,41 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../bin/sequelize");
 
-const Organizations = sequelize.define("Organizations", {
-  id: {
-    type: DataTypes.INTEGER,
-    primaryKey: true,
-    autoIncrement: true,
+const Organization = sequelize.define(
+  "Organization",
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   },
-  name: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-});
+  {
+    freezeTableName: true,
+  }
+);
 
-const Property = sequelize.define("Property", {
-  id: {
-    type: DataTypes.INTEGER,
-    primaryKey: true,
-    autoIncrement: true,
+const Property = sequelize.define(
+  "Property",
+  {
+    id: {
+      type: DataTypes.INTEGER,
+      primaryKey: true,
+      autoIncrement: true,
+    },
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
   },
-  name: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-});
+  {
+    freezeTableName: true,
+  }
+);
 
 const Region = sequelize.define("Region", {
   id: {
@@ -105,8 +117,8 @@ const OauthUsers = sequelize.define("OauthUsers", {
 });
 
 // Define relationships
-Organizations.hasMany(Property);
-Property.belongsTo(Organizations);
+Organization.hasMany(Property);
+Property.belongsTo(Organization);
 
 Property.hasMany(Region);
 Region.belongsTo(Property);
@@ -127,7 +139,7 @@ CropCycle.belongsTo(Crop);
 Crop.hasMany(CropCycle);
 
 module.exports = {
-  Organizations,
+  Organization,
   Property,
   Region,
   Field,

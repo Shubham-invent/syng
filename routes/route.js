@@ -6,11 +6,17 @@ const { route } = require("./api");
 var router = express.Router();
 
 router.post("/createOrganization", OrganizationController.createOrganization);
-router.get("/organizations", OrganizationController.getAllOrganization);
-router.get("/organizations/:id", OrganizationController.getOrganizationById);
-router.put("/organizations/:id", OrganizationController.updateOrganizationById);
+router.get("/getAllOrganization", OrganizationController.getAllOrganization);
+router.get(
+  "/getOrganizationById/:id",
+  OrganizationController.getOrganizationById
+);
+router.put(
+  "/updateOrganizationById/:id",
+  OrganizationController.updateOrganizationById
+);
 router.delete(
-  "/organizations/:id",
+  "/deleteOrganizationById/:id",
   OrganizationController.deleteOrganizationById
 );
 
