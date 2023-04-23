@@ -1,8 +1,11 @@
 const { Sequelize } = require("sequelize");
 require("dotenv").config();
 const { SQL_DB_URL } = require("../constant");
+const pg = require("pg");
 
-const sequelize = new Sequelize(SQL_DB_URL);
+const sequelize = new Sequelize(SQL_DB_URL, {
+  dialectModule: pg,
+});
 sequelize
   .sync({ force: false })
   .then(() => {

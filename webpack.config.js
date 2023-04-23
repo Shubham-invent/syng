@@ -8,6 +8,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "build"),
     filename: "server.js",
+    libraryTarget: "commonjs",
   },
   resolve: {
     extensions: [".js"],
@@ -18,9 +19,5 @@ module.exports = {
   optimization: {
     minimize: false,
   },
-  plugins: [
-    new CopyPlugin({
-      patterns: [{ from: "./ecosystem.config.js", to: "./" }],
-    }),
-  ],
+  externals: [{ pg: { commonjs: "pg" } }],
 };
